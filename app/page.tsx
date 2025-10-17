@@ -2,10 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { Check, Mic, BookOpen, Users, Sparkles, Target, Heart, TrendingUp } from "lucide-react"
-import { motion } from "framer-motion"
+import { Check, Mic, BookOpen, Users, Sparkles, Target, Heart, TrendingUp, ShoppingCart } from "lucide-react"
+import { motion, Variants } from "framer-motion"
+import Image from "next/image"
 
-const fadeInUp = {
+const fadeInUp : Variants = {
   hidden: { opacity: 0, y: 60 },
   visible: {
     opacity: 1,
@@ -17,7 +18,7 @@ const fadeInUp = {
   },
 }
 
-const fadeIn = {
+const fadeIn : Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -28,7 +29,7 @@ const fadeIn = {
   },
 }
 
-const staggerContainer = {
+const staggerContainer : Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -39,7 +40,7 @@ const staggerContainer = {
   },
 }
 
-const scaleIn = {
+const scaleIn : Variants = {
   hidden: { opacity: 0, scale: 0.9 },
   visible: {
     opacity: 1,
@@ -107,10 +108,13 @@ export default function LandingPage() {
                   `,
                 }}
               >
-                <img
+                <Image
                   src="/elegant-book-cover-with-microphone-and-stage-light.jpg"
                   alt="Tu palabra tiene poder - Libro de Nicole Coimbra Soria"
-                  className="object-cover w-full h-full"
+                  fill
+                  sizes="100vw"
+                  priority  // Añade esto
+                  className="object-cover"
                 />
               </div>
               <motion.div
@@ -320,9 +324,11 @@ export default function LandingPage() {
                 <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-400 rounded-full opacity-60 blur-2xl" />
                 <div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[oklch(0.65_0.12_70)] rounded-full opacity-60 blur-2xl" />
                 <div className="aspect-square relative rounded-full overflow-hidden shadow-2xl z-10">
-                  <img
+                  <Image
                     src="/professional-woman-speaker-with-microphone-confide.jpg"
                     alt="Nicole Coimbra Soria"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover w-full h-full"
                   />
                 </div>
@@ -364,7 +370,7 @@ export default function LandingPage() {
                     size="lg"
                     className="text-base px-8 py-6 bg-[oklch(0.65_0.12_70)] hover:bg-[oklch(0.60_0.12_70)] text-white rounded-full font-semibold shadow-lg"
                   >
-                    CONOCE MÁS SOBRE EL
+                    CONOCE MÁS SOBRE ELLA
                   </Button>
                 </motion.div>
               </motion.div>
@@ -471,7 +477,7 @@ export default function LandingPage() {
             size="lg"
             className="shadow-2xl bg-[oklch(0.65_0.12_70)] hover:bg-[oklch(0.60_0.12_70)] text-white px-6 py-6 rounded-full font-semibold"
           >
-            <Mic className="w-5 h-5 mr-2" />
+            <ShoppingCart className="w-5 h-5" />
             Comprar ahora
           </Button>
         </motion.div>
